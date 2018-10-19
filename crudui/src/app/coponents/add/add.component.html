@@ -3,15 +3,17 @@
 <p>Fill up the form and click submit to add</p>
 <form>
   <div>
-    <label>Please provide person name</label>
-    <input type="text" [(ngModel)]="name">
+    <label>Please provide person name</label>&nbsp;
+    <input name="name" type="text" [(ngModel)]="name">
   </div>
+  <br>
   <div>
-      <label>Please provide person address</label>
-      <input type="text" [(ngModel)]="address">
-    </div>
-    <div>
-        <label>Please provide person phone number</label>
-        <input type="text" [(ngModel)]="phoneNumber">
-      </div>
+    <label>Please provide person address</label>&nbsp;
+    <input name="address" type="text" [(ngModel)]="address">
+  </div>
+  <br>
+  <div>
+    <label>Please provide person phone number</label>&nbsp;
+    <input name="phoneNumber" type="text" [(ngModel)]="phoneNumber">
+  </div>
 </form>
