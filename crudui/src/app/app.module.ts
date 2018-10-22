@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MyRouterModule} from './modules/my-router/myrouter.module';
 
@@ -25,7 +26,8 @@ import { HomeComponent } from './coponents/home/home.component';
     HttpModule,
     FormsModule,
     RouterModule,
-    MyRouterModule
+    MyRouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
