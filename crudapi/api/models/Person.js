@@ -8,28 +8,25 @@
 module.exports = {
 
   // Name table in database
-  tableName: 'users',
+  tableName: 'person',
   primaryKey: 'id',
   // attributes: types, validations ans defaults values
   attributes: {
     id: {
-      type: 'integer',
+      type: 'number',
       autoIncrement: true
     },
     name: {
       type: 'string',
-      required: true,
-      size: 100
+      required: true
     },
     address: {
       type: 'string',
-      required: true,
-      size: 200
+      required: true
     },
     phoneNumber: {
       type: 'string',
-      required: true,
-      size: 20
+      required: true
     }
   }
 

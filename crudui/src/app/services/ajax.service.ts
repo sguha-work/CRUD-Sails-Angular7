@@ -32,7 +32,7 @@ export class AjaxService {
     }
     options = new RequestOptions({ headers: headers });
     const promise = new Promise((resolve, reject) => {console.log(data);
-      this.http.post(url, data, options).subscribe((dataFromServer: any) => {
+      this.http.post(url, data).subscribe((dataFromServer: any) => {
         resolve(dataFromServer);
       }, (error) => {
         reject(error);
