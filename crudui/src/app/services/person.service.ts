@@ -14,13 +14,12 @@ export class PersonService {
       }
       const personObject: Object = {
         person : {
-          id: 0,
           name: name,
           address: address,
           phoneNumber: phoneNumber
         }
       };
-      this.ajax.post(this.common.getBaseUrl() + '/person/add', personObject).then((data) => {
+      this.ajax.post(this.common.getBaseUrl() + '/person/add', JSON.stringify(personObject)).then((data) => {
         resolve(data);
       }).catch((error) => {
         reject(error);

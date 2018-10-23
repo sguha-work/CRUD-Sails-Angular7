@@ -12,10 +12,6 @@ module.exports = {
   primaryKey: 'id',
   // attributes: types, validations ans defaults values
   attributes: {
-    id: {
-      type: 'number',
-      autoIncrement: true
-    },
     name: {
       type: 'string',
       required: true
