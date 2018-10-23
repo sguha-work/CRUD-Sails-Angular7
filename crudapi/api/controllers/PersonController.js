@@ -6,15 +6,14 @@
  */
 
 module.exports = {
-    getAllPerson: function (req, res) {
-        Person.find().exec(function (err, persons) {
+    getAllPerson: (req, res) => {
+        Person.find().exec((err, persons) => {
             res.send({ 'persons': persons });
             return;
         });
     },
     addPerson: function (req, res) {
         if (req.method == 'POST' && req.param('person', null) != null) {
-            console.log(req.param('person'));
             Person.create(req.param('person'), (error, person) => {
                 if (error) {
                     res.send(error);
@@ -26,18 +25,13 @@ module.exports = {
                     });
                 }
             });
-
-            // Error handling
-            // if (err) {
-            //     res.send('Error:Sorry!Something went Wrong');
-            // } else {}
-            //     res.send('Successfully Created!');
-            //     //res.redirect( ‘person/view/’+model.id);
-            // }
-
         }
         else {
-            res.send('Error:Sorry!Data Wrong');
+            res.send({
+                success: false,
+                status: 500,
+                message: 'Wrong data'
+            });
         }
     }
 

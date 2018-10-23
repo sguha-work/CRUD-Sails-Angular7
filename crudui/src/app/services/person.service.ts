@@ -7,6 +7,7 @@ import { CommonService } from './common.service';
 export class PersonService {
 
   constructor(public ajax: AjaxService, private common: CommonService) { }
+
   public addPersonToDatabase(name: String, address: String, phoneNumber: String): Promise<any> {
     const p = new Promise((resolve, reject) => {
       if (name === '' || address === '' || phoneNumber === '') {
@@ -26,5 +27,15 @@ export class PersonService {
       });
     });
     return p;
+  }
+
+  public getAllPerson() {
+    return new Promise((resolve, reject) => {
+      this.ajax.get(this.common.getBaseUrl() + '/person/get').then((data) => {
+        resolve(data);
+      }).catch((error) => {
+        reject(error);
+      });
+    });
   }
 }
