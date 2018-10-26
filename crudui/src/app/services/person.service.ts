@@ -48,4 +48,26 @@ export class PersonService {
       });
     });
   }
+
+  public updatePersonToDatabase(id: String, name: String, address: String, phoneNumber: String): Promise<any> {
+    const p = new Promise((resolve, reject) => {
+      if (name === '' || address === '' || phoneNumber === '') {
+        reject({error: 'Not enough data'});
+      }
+      const personObject: Object = {
+        person : {
+          id: id,
+          name: name,
+          address: address,
+          phoneNumber: phoneNumber
+        }
+      };
+      this.ajax.post(this.common.getBaseUrl() + '/person/update', JSON.stringify(personObject)).then((data) => {
+        resolve(data);
+      }).catch((error) => {
+        reject(error);
+      });
+    });
+    return p;
+  }
 }

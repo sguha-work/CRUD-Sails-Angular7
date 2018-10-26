@@ -8,6 +8,7 @@ import { PersonService } from './../../services/person.service';
 })
 export class EditComponent implements OnInit {
   public model: any;
+  private personData: any;
   constructor(private route: ActivatedRoute, private person: PersonService) {
     this.model = {};
     this.model.data = {};
@@ -26,9 +27,23 @@ export class EditComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.person.getPersonById(id.toString()).then((data) => {
       this.model.data = data;
+      this.personData = data;
     }).catch(() => {
       alert('Unable to fetch data. Please try after sometime');
     });
+  }
+
+  public submit() {
+    this.person.updatePersonToDatabase(this.model.data.id, this.model.data.name, this.model.data.address,
+      this.model.data.phoneNumber).then(() => {
+      alert('data updated');
+    }).catch(() => {
+      alert('Unable to update, try again');
+    });
+  }
+
+  public resetFields() {
+    this.model.data = this.personData;
   }
 
   ngOnInit() {

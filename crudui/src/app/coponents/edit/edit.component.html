@@ -47,5 +47,5 @@
   <input type="text" [(ngModel)]='model.data.phoneNumber' name="phoneNumber">
 </div>
 <br>
-<button>Submit</button>
-<button>Reset</button>
+<button (click)="submit()">Submit</button>
+<button (click)="resetFields()">Reset</button>

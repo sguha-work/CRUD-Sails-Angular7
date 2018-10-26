@@ -52,7 +52,7 @@ module.exports = {
         }
     },
 
-    editPerson: function (req, res) {
+    updatePerson: function (req, res) {
         if (req.method == 'POST' && req.param('person', null) != null) {
             Person.update({id:req.param('person')['id']},req.param('person'), (error) => {
                 if(error) {
