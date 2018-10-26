@@ -16,6 +16,9 @@ export class EditComponent implements OnInit {
     this.getPersonDetails();
   }
 
+  /**
+   * This method is called to setup the initial values for Model
+   */
   private hardReset() {
     this.model.data.id = '';
     this.model.data.name = '';
@@ -23,6 +26,9 @@ export class EditComponent implements OnInit {
     this.model.data.phoneNumber = '';
   }
 
+  /**
+   * This method using person service fetch details of perticuler person
+   */
   public getPersonDetails() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.person.getPersonById(id.toString()).then((data) => {
@@ -33,6 +39,9 @@ export class EditComponent implements OnInit {
     });
   }
 
+  /**
+   * After editing this method use person service to store the updated data
+   */
   public submit() {
     this.person.updatePersonToDatabase(this.model.data.id, this.model.data.name, this.model.data.address,
       this.model.data.phoneNumber).then(() => {

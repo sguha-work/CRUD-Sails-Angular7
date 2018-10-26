@@ -12,6 +12,10 @@ export class ListComponent implements OnInit {
     this.model.dataToDisplay = null;
   }
 
+  /**
+   *
+   * @param event This method calls the deletePerson method of person service to delete a person by its ID
+   */
   public delete(event) {
     if (window.confirm('Do you really want to delete this data')) {
       this.person.deletePerson(event.currentTarget.getAttribute('id')).then(() => {
@@ -24,6 +28,9 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
+    /**
+     * The getAllPerson method resides in person service  which return all person data
+     */
     this.person.getAllPerson().then((data) => {
       this.model.dataToDisplay = data['persons'];
       console.log(this.model.dataToDisplay);

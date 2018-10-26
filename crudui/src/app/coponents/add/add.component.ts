@@ -13,6 +13,10 @@ export class AddComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  /**
+   * This method submit date to person service from where it calls the api to store datas
+   */
   public submitData() {
       this.person.addPersonToDatabase(this.name, this.address, this.phoneNumber).then((data) => {
         console.log('data', data);
