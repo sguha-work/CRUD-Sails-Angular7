@@ -1,3 +1,47 @@
+<h4>This form is for edition an existing document</h4>
 <p>
-  edit works!
+  <b>The original data looks like below</b>
 </p>
+<p>
+  <label>
+    Name:
+  </label>
+  <label>
+    {{model.data.name}}
+  </label>
+</p>
+<p>
+  <label>
+    Address:
+  </label>
+  <label>
+    {{model.data.address}}
+
+  </label>
+</p>
+<p>
+  <label>
+    PhoneNumber:
+  </label>
+  <label>
+    {{model.data.phoneNumber}}
+  </label>
+</p>
+<div>
+  <label>Id</label>&nbsp;
+  <input type="text" [(ngModel)]='model.data.id' name="id" readonly>
+</div>
+<div>
+  <label>Name</label>&nbsp;
+  <input type="text" [(ngModel)]='model.data.name' name="name">
+</div>
+<div>
+  <label>Address</label>&nbsp;
+  <input type="text" [(ngModel)]='model.data.address' name="address">
+</div>
+<div>
+  <label>Phone Number</label>&nbsp;
+  <input type="text" [(ngModel)]='model.data.phoneNumber' name="phoneNumber">
+</div>
+<button>Submit</button>
+<button>Reset</button>

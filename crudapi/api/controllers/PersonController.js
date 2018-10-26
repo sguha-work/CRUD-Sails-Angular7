@@ -12,6 +12,14 @@ module.exports = {
             return;
         });
     },
+
+    getPersonById: (req, res) => {
+        Person.findOne({id: req.param('id')}).exec((error, person) => {
+            res.send(person);
+            return;
+        });
+    },
+
     addPerson: function (req, res) {
         if (req.method == 'POST' && req.param('person', null) != null) {
             Person.create(req.param('person'), (error, person) => {
@@ -33,7 +41,30 @@ module.exports = {
                 message: 'Wrong data'
             });
         }
-    }
+    },
 
+    editPerson: function (req, res) {
+        if (req.method == 'POST' && req.param('person', null) != null) {
+            Person.update({id:req.param('person')['id']},req.param('person'), (error) => {
+                if(error) {
+                    res.send(error);
+                } else {
+                    res.send({
+                        success: true,
+                        status: 200,
+                        message: 'Successfully updated 1 row in database'
+                    });
+                }
+            });
+
+        }
+        else {
+            res.send({
+                success: false,
+                status: 500,
+                message: 'Wrong data'
+            });
+        }
+    }
 };
 

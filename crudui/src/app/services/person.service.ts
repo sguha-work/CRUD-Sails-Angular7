@@ -38,4 +38,14 @@ export class PersonService {
       });
     });
   }
+
+  public getPersonById(id: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.ajax.get(this.common.getBaseUrl() + '/person/get/' + id).then((data) => {
+        resolve(data);
+      }).catch((error) => {
+        reject(error);
+      });
+    });
+  }
 }

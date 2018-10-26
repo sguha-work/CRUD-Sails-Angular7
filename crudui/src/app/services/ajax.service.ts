@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {RequestOptions} from '@angular/http';
+import { RequestOptions } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,8 @@ export class AjaxService {
       headers = new Headers({ 'Content-Type': 'application/json', 'responseType': 'json' });
     }
     options = new RequestOptions({ headers: headers });
-    const promise = new Promise((resolve, reject) => {console.log(data);
+    const promise = new Promise((resolve, reject) => {
+      console.log(data);
       this.http.post(url, data, options).subscribe((dataFromServer: any) => {
         resolve(dataFromServer);
       }, (error) => {

@@ -24,8 +24,8 @@ import { HomeComponent } from './coponents/home/home.component';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule,
     RouterModule,
+    FormsModule,
     MyRouterModule,
     HttpClientModule
   ],

@@ -29,5 +29,7 @@ module.exports.routes = {
   },
 
   'get /person/get': 'PersonController.getAllPerson',
+  'get /person/get/:id': 'PersonController.getPersonById',
   'post /person/add': 'PersonController.addPerson',
+  'post /person/edit': 'PersonController.editPerson',
 };
