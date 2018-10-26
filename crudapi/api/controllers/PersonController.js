@@ -14,10 +14,19 @@ module.exports = {
     },
 
     getPersonById: (req, res) => {
-        Person.findOne({id: req.param('id')}).exec((error, person) => {
-            res.send(person);
+        if (req.method == 'GET' && req.param('id', null) != null) {
+            Person.findOne({id: req.param('id')}).exec((error, person) => {
+                res.send(person);
+                return;
+            });
+        } else {
+            res.send({
+                success: false,
+                status: 500,
+                message: 'Error in request'
+            });
             return;
-        });
+        }
     },
 
     addPerson: function (req, res) {
