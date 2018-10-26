@@ -32,4 +32,5 @@ module.exports.routes = {
   'get /person/get/:id': 'PersonController.getPersonById',
   'post /person/add': 'PersonController.addPerson',
   'post /person/update': 'PersonController.updatePerson',
+  'post /person/delete/:id': 'PersonController.deletePerson',
 };

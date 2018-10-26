@@ -70,4 +70,14 @@ export class PersonService {
     });
     return p;
   }
+
+  public deletePerson(id: string) {
+    return new Promise((resolve, reject) => {
+      this.ajax.get(this.common.getBaseUrl() + '/person/delete/' + id).then((data) => {
+        resolve(data);
+      }).catch((error) => {
+        reject(error);
+      });
+    });
+  }
 }

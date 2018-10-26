@@ -74,6 +74,26 @@ module.exports = {
                 message: 'Wrong data'
             });
         }
+    },
+
+    deletePerson: function(req, res) {
+        if (req.method == 'GET' && req.param('id', null) != null) {
+            Person.destroy({id: req.param('id')}).exec((error) => {
+                res.send({
+                    success: true,
+                    status: 200,
+                    message: 'Successfully deleted 1 row in database'
+                });
+                return;
+            });
+        } else {
+            res.send({
+                success: false,
+                status: 500,
+                message: 'Unable to delete'
+            });
+            return;
+        }
     }
 };
 

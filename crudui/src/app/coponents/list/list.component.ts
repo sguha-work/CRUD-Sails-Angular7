@@ -12,6 +12,17 @@ export class ListComponent implements OnInit {
     this.model.dataToDisplay = null;
   }
 
+  public delete(event) {
+    if (window.confirm('Do you really want to delete this data')) {
+      this.person.deletePerson(event.currentTarget.getAttribute('id')).then(() => {
+        alert('Deleted');
+        window.location.reload();
+      }).catch(() => {
+        alert('Unable to delete data, try after sometime');
+      });
+    }
+  }
+
   ngOnInit() {
     this.person.getAllPerson().then((data) => {
       this.model.dataToDisplay = data['persons'];
