@@ -33,7 +33,7 @@
       {{data.phoneNumber}}
     </td>
     <td>
-      <a href="/edit/{{data.id}}">Edit</a>/<a href="javascript:void(0)" data-id="{{data.id}}" (click)="delete($event)">Delete</a>
+      <a routerLink="/edit/{{data.id}}">Edit</a>/<a href="javascript:void(0)" data-id="{{data.id}}" (click)="delete($event)">Delete</a>
     </td>
   </tr>
 </table>
